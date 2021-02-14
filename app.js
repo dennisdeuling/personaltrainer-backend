@@ -23,9 +23,8 @@ app.use(cookieParser());
 // default value for title local
 app.locals.title = 'Express - Generated with IronGenerator';
 
-
-/*const index = require('./routes/index');
-app.use('/', index);*/
+const exercise = require('./routes/exercise-routes');
+app.use('/api/exercise', exercise);
 
 
 module.exports = app;
