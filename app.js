@@ -26,5 +26,8 @@ app.locals.title = 'Express - Generated with IronGenerator';
 const exercise = require('./routes/exercise-routes');
 app.use('/api/exercise', exercise);
 
+const workout = require('./routes/workout-routes');
+app.use('/api/workout', workout);
+
 
 module.exports = app;
