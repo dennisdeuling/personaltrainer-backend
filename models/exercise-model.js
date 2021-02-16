@@ -24,6 +24,8 @@ const exerciseSchema = new Schema({
 		type: Schema.Types.ObjectId,
 		ref: 'User'
 	}]
+}, {
+	timestamps: true
 });
 
 const Exercise = mongoose.model('Exercise', exerciseSchema);
