@@ -17,10 +17,10 @@ workoutRoute.get('/', (req, res, next) => {
 });
 
 workoutRoute.post('/create', (req, res, next) => {
-	const {name, description, goal, sets, weight, owner} = req.body;
+	const {title, description, goal, sets, weight, owner} = req.body;
 
 	Workout.create({
-		name,
+		title,
 		description
 	})
 		.then(newWorkout => {

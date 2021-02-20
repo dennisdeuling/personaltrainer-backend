@@ -5,6 +5,18 @@ const exerciseRoute = express.Router();
 const Exercise = require('../models/exercise-model');
 const Workout = require('../models/workout-model');
 
+exerciseRoute.get('/', (req, res, next) => {
+	Workout.find()
+		// TODO: integrate maybe the .populate()
+		.then(exerciseList => {
+			res.json(exerciseList);
+		})
+		.catch(error => {
+			res.status(500).json(error);
+		});
+});
+
+
 exerciseRoute.get('/:exerciseId', (req, res, next) => {
 	Exercise.findById(req.params.exerciseId)
 		.then(exercise => {
@@ -16,10 +28,10 @@ exerciseRoute.get('/:exerciseId', (req, res, next) => {
 });
 
 exerciseRoute.post('/create', (req, res, next) => {
-	const {name, description, thumbImage} = req.body;
+	const {title, description, thumbImage} = req.body;
 
 	Exercise.create({
-		name,
+		title,
 		description,
 		thumbImage
 	})

@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const workoutSchema = new Schema({
-	name: {
+	title: {
 		type: String,
 		trim: true
 		// required: true
