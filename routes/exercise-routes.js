@@ -6,7 +6,7 @@ const Exercise = require('../models/exercise-model');
 const Workout = require('../models/workout-model');
 
 exerciseRoute.get('/', (req, res, next) => {
-	Workout.find()
+	Exercise.find()
 		// TODO: integrate maybe the .populate()
 		.then(exerciseList => {
 			res.json(exerciseList);
