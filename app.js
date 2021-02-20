@@ -57,5 +57,8 @@ app.use('/api/exercise', exercise);
 const workout = require('./routes/workout-routes');
 app.use('/api/workout', workout);
 
+const upload = require('./routes/file-upload-routes');
+app.use('/api/upload', upload);
+
 
 module.exports = app;
