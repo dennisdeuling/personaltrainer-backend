@@ -12,24 +12,13 @@ const workoutSchema = new Schema({
 		trim: true
 		// required: true
 	},
-	goal: {
-		type: String,
-		trim: true
-		// required: true
-	},
-	sets: {
-		type: String,
-		trim: true
-		// required: true
-	},
-	weight: {
-		type: String,
-		trim: true
-		// required: true
-	},
 	owner: [{
 		type: Schema.Types.ObjectId,
 		ref: 'User'
+	}],
+	exercises: [{
+		type: Schema.Types.ObjectId,
+		ref: 'Exercise'
 	}]
 }, {
 	timestamps: true
