@@ -8,7 +8,7 @@ const User = require('../models/user-model');
 authRoute.post('/signup', (req, res, next) => {
 	const {username, password, email} = req.body;
 
-	if (!(username || password)) {
+	if (!(username || email || password)) {
 		res.status(400).json({
 			message: 'Please provide username and password!'
 		});
@@ -16,7 +16,9 @@ authRoute.post('/signup', (req, res, next) => {
 
 	// TODO: Validation of the password
 
-	User.findOne({email}, (error, foundUser) => {
+	User.findOne({
+		email
+	}, (error, foundUser) => {
 		if (error) {
 			res.status(500).json({
 				message: 'An issue with your email'

@@ -17,20 +17,28 @@ passport.deserializeUser((userIdFromSession, callback) => {
 	});
 });
 
-passport.use(new LocalStrategy((username, password, next) => {
-	User.findOne({username}, (error, foundUser) => {
+passport.use(new LocalStrategy({
+	usernameField: 'email'
+}, (email, password, next) => {
+	User.findOne({
+		email: email
+	}, (error, foundUser) => {
 		if (error) {
 			next(error);
 			return;
 		}
 
 		if (!foundUser) {
-			next(null, false, {message: 'Wrong password'});
+			next(null, false, {
+				message: 'Wrong password'
+			});
 			return;
 		}
 
 		if (!bcrypt.compareSync(password, foundUser.password)) {
-			next(null, false, {message: 'Wrong password'});
+			next(null, false, {
+				message: 'Wrong password'
+			});
 			return;
 		}
 
