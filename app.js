@@ -41,17 +41,26 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(
 	cors({
 		credentials: true,
-		origin: ['http://localhost:3000']
+		origin: [process.env.CORS_ALLOWED]
 	})
 );
 
 // TODO: make a config file from it
 // Session configuration
 app.use(session({
-	secret: 'Your secret goes here',
+	secret: 'Im so secret that it cant be more secret',
 	resave: true,
-	saveUninitialized: true
+	saveUninitialized: true,
+	ttl: 60 * 60 * 24,
+	cookie: {
+		secure: process.env.NODE_ENV,
+		sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+		httpOnly: true,
+		maxAge: 60 * 60 * 24
+	}
 }));
+
+app.set('trust proxy', 1);
 
 // Passport
 app.use(passport.initialize());

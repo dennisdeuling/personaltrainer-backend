@@ -58,20 +58,20 @@ authRoute.post('/signup', (req, res, next) => {
 authRoute.post('/login', (req, res, next) => {
 	passport.authenticate('local', (error, user, failDetails) => {
 		if (error) {
-			res.send(500).json({
+			res.status(500).json({
 				message: 'To authenticate the user went wrong'
 			});
 			return;
 		}
 		if (!user) {
-			res.send(401).json(failDetails);
+			res.status(401).json(failDetails);
 			return;
 		}
 
 		// Save user in session
 		req.login(user, (error) => {
 			if (error) {
-				res.send(500).json({
+				res.status(500).json({
 					message: 'To save the user in the session went wrong'
 				});
 				return;
