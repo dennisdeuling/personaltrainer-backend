@@ -19,9 +19,13 @@ const userSchema = new Schema({
 	},
 	userGroup: {
 		type: String,
-		enum: ['Personaltrainer', 'Client']
+		enum: ['trainer', 'client']
 		// required: true
-	}
+	},
+	trainer: [{
+		type: Schema.Types.ObjectId,
+		ref: 'User'
+	}]
 }, {
 	timestamps: true
 });

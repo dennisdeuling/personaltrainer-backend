@@ -72,6 +72,9 @@ app.locals.title = 'Express - Generated with IronGenerator';
 const authentication = require('./routes/auth-routes');
 app.use('/api', authentication);
 
+const user = require('./routes/user-routes');
+app.use('/api/user', user);
+
 const exercise = require('./routes/exercise-routes');
 app.use('/api/exercise', exercise);
 

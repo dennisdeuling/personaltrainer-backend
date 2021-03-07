@@ -6,9 +6,9 @@ const bcrypt = require('bcryptjs');
 const User = require('../models/user-model');
 
 authRoute.post('/signup', (req, res, next) => {
-	const {username, password, email} = req.body;
+	const {username, password, email, userGroup} = req.body;
 
-	if (!(username || email || password)) {
+	if (!(username || email || password, userGroup)) {
 		res.status(400).json({
 			message: 'Please provide username and password!'
 		});
@@ -39,6 +39,7 @@ authRoute.post('/signup', (req, res, next) => {
 		const newUser = new User({
 			username: username,
 			email: email,
+			userGroup: userGroup,
 			passwordHashed: hashedPassword
 		});
 
@@ -78,7 +79,13 @@ authRoute.post('/login', (req, res, next) => {
 			}
 
 			// Log in
-			res.status(200).json(user);
+			const newUser = {
+				_id: user._id,
+				username: user.username,
+				email: user.email,
+				userGroup: user.userGroup
+			};
+			res.status(200).json(newUser);
 		});
 	})(req, res, next);
 });
