@@ -99,7 +99,7 @@ authRoute.post('/logout', (req, res, next) => {
 
 authRoute.get('/loggedin', (req, res, next) => {
 	if (req.isAuthenticated()) {
-		res.send(200).json(req.user);
+		res.status(200).json(req.user);
 		return;
 	}
 	res.status(403).json({

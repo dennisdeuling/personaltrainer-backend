@@ -12,17 +12,13 @@ const exerciseSchema = new Schema({
 		trim: true
 		// required: true
 	},
-	thumbImage: {
+	image: {
 		type: String
 		// required: true
 	},
 	workouts: [{
 		type: Schema.Types.ObjectId,
 		ref: 'Workout'
-	}],
-	owner: [{
-		type: Schema.Types.ObjectId,
-		ref: 'User'
 	}]
 }, {
 	timestamps: true

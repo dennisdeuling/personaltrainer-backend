@@ -28,12 +28,12 @@ exerciseRoute.get('/:exerciseId', (req, res, next) => {
 });
 
 exerciseRoute.post('/create', (req, res, next) => {
-	const {title, description, thumbImage} = req.body;
+	const {title, description, oneImage: image} = req.body;
 
 	Exercise.create({
 		title,
 		description,
-		thumbImage
+		image
 	})
 		.then(newExercise => {
 			res.json(newExercise);

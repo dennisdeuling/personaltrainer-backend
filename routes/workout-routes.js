@@ -18,7 +18,7 @@ workoutRoute.get('/', (req, res, next) => {
 });
 
 workoutRoute.post('/create', (req, res, next) => {
-	const {title, description, goal, sets, weight, owner} = req.body;
+	const {title, description} = req.body;
 
 	Workout.create({
 		title,

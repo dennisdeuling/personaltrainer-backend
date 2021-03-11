@@ -25,6 +25,14 @@ const userSchema = new Schema({
 	trainer: [{
 		type: Schema.Types.ObjectId,
 		ref: 'User'
+	}],
+	workouts: [{
+		type: Schema.Types.ObjectId,
+		ref: 'Workout'
+	}],
+	exercises: [{
+		type: Schema.Types.ObjectId,
+		ref: 'Exercise'
 	}]
 }, {
 	timestamps: true

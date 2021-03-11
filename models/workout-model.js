@@ -12,10 +12,6 @@ const workoutSchema = new Schema({
 		trim: true
 		// required: true
 	},
-	owner: [{
-		type: Schema.Types.ObjectId,
-		ref: 'User'
-	}],
 	exercises: [{
 		type: Schema.Types.ObjectId,
 		ref: 'Exercise'

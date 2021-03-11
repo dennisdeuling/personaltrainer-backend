@@ -26,19 +26,47 @@ const users = [{
 	username: 'Trainer One',
 	email: 'trainerone@example.com',
 	passwordHashed: '1234',
-	userGroup: 'trainer'
+	userGroup: 'trainer',
+	workouts: [
+		new mongoose.mongo.ObjectId('604225f92d27c91f65093301'),
+		new mongoose.mongo.ObjectId('604225f92d27c91f65093302'),
+		new mongoose.mongo.ObjectId('604225f92d27c91f65093303'),
+		new mongoose.mongo.ObjectId('604225f92d27c91f65093304'),
+		new mongoose.mongo.ObjectId('604225f92d27c91f65093305')
+	],
+	exercises: [
+		new mongoose.mongo.ObjectId('60324298cbb65c1211e98193'),
+		new mongoose.mongo.ObjectId('60324298cbb65c1211e98195')
+	]
 }, {
 	_id: new mongoose.mongo.ObjectId('6041339fb89d4e122abac004'),
 	username: 'Trainer Two',
 	email: 'trainertwo@example.com',
 	passwordHashed: '1234',
-	userGroup: 'trainer'
+	userGroup: 'trainer',
+	workouts: [
+		new mongoose.mongo.ObjectId('604225f92d27c91f65093306'),
+		new mongoose.mongo.ObjectId('604225f92d27c91f65093307')
+	],
+	exercises: [
+		new mongoose.mongo.ObjectId('60324298cbb65c1211e98193'),
+		new mongoose.mongo.ObjectId('60324298cbb65c1211e98195')
+	]
 }, {
 	_id: new mongoose.mongo.ObjectId('6041339fb89d4e122abac005'),
 	username: 'Trainer Three',
 	email: 'trainerthree@example.com',
 	passwordHashed: '1234',
-	userGroup: 'trainer'
+	userGroup: 'trainer',
+	workouts: [
+		new mongoose.mongo.ObjectId('604225f92d27c91f65093308'),
+		new mongoose.mongo.ObjectId('604225f92d27c91f65093309'),
+		new mongoose.mongo.ObjectId('604225f92d27c91f65093310')
+	],
+	exercises: [
+		new mongoose.mongo.ObjectId('60324298cbb65c1211e98193'),
+		new mongoose.mongo.ObjectId('60324298cbb65c1211e98195')
+	]
 }];
 
 User.create(users)

@@ -3,13 +3,13 @@ const fileUpload = express.Router();
 
 const uploader = require('../configs/cloudinaryImageSetup.config');
 
-fileUpload.post('/', uploader.single('thumbImageUrl'), (req, res, next) => {
+fileUpload.post('/', uploader.single('imageUrl'), (req, res, next) => {
 	if (!req.file) {
 		next(new Error('No file uploaded'));
 		return;
 	}
 	res.json({
-		thumbImage: req.file.path
+		imageUrl: req.file.path
 	});
 });
 
