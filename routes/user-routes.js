@@ -96,6 +96,7 @@ userRoute.get('/:userId', (req, res, next) => {
 					exercises: user.exercises,
 					userGroup: user.userGroup
 				};
+				console.log(newUser);
 				res.json(newUser);
 			}
 			if (user.userGroup === 'trainer') {
